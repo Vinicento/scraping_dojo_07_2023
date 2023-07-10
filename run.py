@@ -45,9 +45,9 @@ class QuoteScraper:
 
         data = []
         for i in json_obj:
-            text = i['text'].replace('“', '')
+            text = i['text'].replace('“', '').replace('”', '')
 
-            author = i['author']['name'].replace('“', '')
+            author = i['author']['name'].replace('“', '').replace('”', '')
             tags = i['tags']
 
             new_quote = {
@@ -62,7 +62,7 @@ class QuoteScraper:
     def _save_quotes(self, quotes, output_file):
         with open(output_file, "w", encoding="utf-8") as json_file:
             for quote in quotes:
-                json_file.write(json.dumps(quote) + "\n",)
+                json_file.write(json.dumps(quote,ensure_ascii=False) + "\n",)
 
 
 if __name__ == "__main__":
