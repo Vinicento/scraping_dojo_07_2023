@@ -52,7 +52,7 @@ class QuoteScraper:
 
             new_quote = {
                 'text': text,
-                'author': author,
+                'by': author,
                 'tags': tags
             }
             data.append(new_quote)
